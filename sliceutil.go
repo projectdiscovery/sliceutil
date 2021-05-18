@@ -10,5 +10,16 @@ func PruneEqual(v []string, equalTo string) (r []string) {
 			r = append(r, v[i])
 		}
 	}
-	return r
+	return
+}
+
+func Dedupe(v []string) (r []string) {
+	seen := make(map[string]struct{})
+	for _, vv := range v {
+		if _, ok := seen[vv]; !ok {
+			seen[vv] = struct{}{}
+			r = append(r, vv)
+		}
+	}
+	return
 }
