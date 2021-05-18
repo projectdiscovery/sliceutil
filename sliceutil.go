@@ -6,7 +6,7 @@ func PruneEmptyStrings(v []string) []string {
 
 func PruneEqual(v []string, equalTo string) (r []string) {
 	for i := range v {
-		if v[i] == equalTo {
+		if v[i] != equalTo {
 			r = append(r, v[i])
 		}
 	}
