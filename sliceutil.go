@@ -26,3 +26,14 @@ func Dedupe(v []string) (r []string) {
 	}
 	return
 }
+
+func DedupeInt(v []int) (r []int) {
+	seen := make(map[int]struct{})
+	for _, vv := range v {
+		if _, ok := seen[vv]; !ok {
+			seen[vv] = struct{}{}
+			r = append(r, vv)
+		}
+	}
+	return
+}
