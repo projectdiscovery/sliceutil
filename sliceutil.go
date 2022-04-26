@@ -29,6 +29,7 @@ func Dedupe(v []string) (r []string) {
 	return
 }
 
+// Dedupe removes duplicates from a slice of ints preserving the order
 func DedupeInt(v []int) (r []int) {
 	seen := make(map[int]struct{})
 	for _, vv := range v {
@@ -40,6 +41,7 @@ func DedupeInt(v []int) (r []int) {
 	return
 }
 
+// PickRandom item from a slice of strings
 func PickRandom(v []string) string {
 	return v[rand.Intn(len(v))]
 }
