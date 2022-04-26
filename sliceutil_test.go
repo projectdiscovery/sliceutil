@@ -20,9 +20,23 @@ func TestPruneEqual(t *testing.T) {
 	require.Equal(t, []string{"a", "", ""}, res, "strings not pruned correctly")
 }
 
-func TestSeen(t *testing.T) {
+func TestDedupeStrings(t *testing.T) {
 	test := []string{"a", "a", "b", "b"}
 	// converts back
 	res := Dedupe(test)
 	require.Equal(t, []string{"a", "b"}, res, "strings not deduped correctly")
+}
+
+func TestDedupeInt(t *testing.T) {
+	test := []int{1, 2, 2, 3}
+	// converts back
+	res := DedupeInt(test)
+	require.Equal(t, []int{1, 2, 3}, res, "ints not deduped correctly")
+}
+
+func TestPickRandom(t *testing.T) {
+	test := []string{"a", "b"}
+	// converts back
+	res := PickRandom(test)
+	require.Contains(t, test, res, "element was not picked correctly")
 }
