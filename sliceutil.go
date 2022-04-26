@@ -1,5 +1,7 @@
 package sliceutil
 
+import "math/rand"
+
 // PruneEmptyStrings from the slice
 func PruneEmptyStrings(v []string) []string {
 	return PruneEqual(v, "")
@@ -36,4 +38,8 @@ func DedupeInt(v []int) (r []int) {
 		}
 	}
 	return
+}
+
+func PickRandom(v []string) string {
+	return v[rand.Intn(len(v))]
 }
