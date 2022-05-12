@@ -40,3 +40,19 @@ func TestPickRandom(t *testing.T) {
 	res := PickRandom(test)
 	require.Contains(t, test, res, "element was not picked correctly")
 }
+
+func TestContains(t *testing.T) {
+	test1 := []string{"a", "b"}
+	test2 := "a"
+	// converts back
+	res := Contains(test1, test2)
+	require.True(t, res, "unexptected result")
+}
+
+func TestContainsItems(t *testing.T) {
+	test1 := []string{"a", "b", "c"}
+	test2 := []string{"a", "b"}
+	// converts back
+	res := ContainsItems(test1, test2)
+	require.True(t, res, "unexptected result")
+}

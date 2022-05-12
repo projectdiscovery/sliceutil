@@ -45,3 +45,23 @@ func DedupeInt(v []int) (r []int) {
 func PickRandom(v []string) string {
 	return v[rand.Intn(len(v))]
 }
+
+// Contains if a slice contains an element
+func Contains(s []string, e string) bool {
+	for _, a := range s {
+		if a == e {
+			return true
+		}
+	}
+	return false
+}
+
+// ContainsItems checks if s1 contains s2
+func ContainsItems(s1 []string, s2 []string) bool {
+	for _, e := range s2 {
+		if !Contains(s1, e) {
+			return false
+		}
+	}
+	return true
+}
