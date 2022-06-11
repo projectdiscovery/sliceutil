@@ -56,3 +56,12 @@ func TestContainsItems(t *testing.T) {
 	res := ContainsItems(test1, test2)
 	require.True(t, res, "unexptected result")
 }
+
+func TestToInt(t *testing.T) {
+	test1 := []string{"1", "2"}
+	test2 := []int{1, 2}
+	// converts back
+	res, err := ToInt(test1)
+	require.Nil(t, err)
+	require.Equal(t, test2, res, "unexptected result")
+}
