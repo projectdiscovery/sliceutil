@@ -2,4 +2,4 @@ module github.com/projectdiscovery/sliceutil
 
 go 1.16
 
-require github.com/stretchr/testify v1.7.3
+require github.com/stretchr/testify v1.7.5
