@@ -14,24 +14,27 @@ func TestPruneEmptyStrings(t *testing.T) {
 }
 
 func TestPruneEqual(t *testing.T) {
-	test := []string{"a", "", "", "b"}
+	testStr := []string{"a", "", "", "b"}
 	// converts back
-	res := PruneEqual(test, "b")
-	require.Equal(t, []string{"a", "", ""}, res, "strings not pruned correctly")
+	resStr := PruneEqual(testStr, "b")
+	require.Equal(t, []string{"a", "", ""}, resStr, "strings not pruned correctly")
+
+	testInt := []int{1, 2, 3, 4}
+	// converts back
+	resInt := PruneEqual(testInt, 2)
+	require.Equal(t, []int{1, 3, 4}, resInt, "ints not pruned correctly")
 }
 
-func TestDedupeStrings(t *testing.T) {
-	test := []string{"a", "a", "b", "b"}
+func TestDedupe(t *testing.T) {
+	testStr := []string{"a", "a", "b", "b"}
 	// converts back
-	res := Dedupe(test)
-	require.Equal(t, []string{"a", "b"}, res, "strings not deduped correctly")
-}
+	resStr := Dedupe(testStr)
+	require.Equal(t, []string{"a", "b"}, resStr, "strings not deduped correctly")
 
-func TestDedupeInt(t *testing.T) {
-	test := []int{1, 2, 2, 3}
+	testInt := []int{1, 1, 2, 2}
 	// converts back
-	res := DedupeInt(test)
-	require.Equal(t, []int{1, 2, 3}, res, "ints not deduped correctly")
+	res := Dedupe(testInt)
+	require.Equal(t, []int{1, 2}, res, "ints not deduped correctly")
 }
 
 func TestPickRandom(t *testing.T) {
@@ -42,19 +45,31 @@ func TestPickRandom(t *testing.T) {
 }
 
 func TestContains(t *testing.T) {
-	test1 := []string{"a", "b"}
-	test2 := "a"
+	testSliceStr := []string{"a", "b"}
+	testElemStr := "a"
 	// converts back
-	res := Contains(test1, test2)
-	require.True(t, res, "unexptected result")
+	resStr := Contains(testSliceStr, testElemStr)
+	require.True(t, resStr, "unexptected result")
+
+	testSliceInt := []int{1, 2}
+	testElemInt := 1
+	// converts back
+	resInt := Contains(testSliceInt, testElemInt)
+	require.True(t, resInt, "unexptected result")
 }
 
 func TestContainsItems(t *testing.T) {
-	test1 := []string{"a", "b", "c"}
-	test2 := []string{"a", "b"}
+	test1Str := []string{"a", "b", "c"}
+	test2Str := []string{"a", "c"}
 	// converts back
-	res := ContainsItems(test1, test2)
-	require.True(t, res, "unexptected result")
+	resStr := ContainsItems(test1Str, test2Str)
+	require.True(t, resStr, "unexptected result")
+
+	test1Int := []int{1, 2, 3}
+	test2Int := []int{1, 3}
+	// converts back
+	resInt := ContainsItems(test1Int, test2Int)
+	require.True(t, resInt, "unexptected result")
 }
 
 func TestToInt(t *testing.T) {
