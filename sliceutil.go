@@ -3,7 +3,14 @@ package sliceutil
 import (
 	"math/rand"
 	"strconv"
+	"time"
 )
+
+// As specified here https://stackoverflow.com/a/12321192/8155097
+// it's better to set the seed only once.
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
 
 // PruneEmptyStrings from the slice
 func PruneEmptyStrings(v []string) []string {
@@ -34,8 +41,8 @@ func Dedupe[T comparable](inputSlice []T) (result []T) {
 	return
 }
 
-// PickRandom item from a slice of strings
-func PickRandom(v []string) string {
+// PickRandom item from a slice of elements
+func PickRandom[T any](v []T) T {
 	return v[rand.Intn(len(v))]
 }
 

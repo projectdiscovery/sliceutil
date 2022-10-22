@@ -38,10 +38,15 @@ func TestDedupe(t *testing.T) {
 }
 
 func TestPickRandom(t *testing.T) {
-	test := []string{"a", "b"}
+	testStr := []string{"a", "b"}
 	// converts back
-	res := PickRandom(test)
-	require.Contains(t, test, res, "element was not picked correctly")
+	resStr := PickRandom(testStr)
+	require.Contains(t, testStr, resStr, "element was not picked correctly")
+
+	testInt := []int{1, 2}
+	// converts back
+	resInt := PickRandom(testInt)
+	require.Contains(t, testInt, resInt, "element was not picked correctly")
 }
 
 func TestContains(t *testing.T) {
